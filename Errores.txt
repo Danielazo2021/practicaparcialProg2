@@ -1,0 +1,12 @@
+ no existe la tabla tipo de recetas, ni el sp para consultar,
+     lo que no permite cargar la ventana principal.
+    tampoco deja guardar sin el tipo de receta.
+    no pide que funcione la consulta del form princiipal, 
+    solo activamos el boton nueva receta??
+    no indica en el datagridview que poner en accion, 
+    puse la unidad porque queda mas piola...
+    no tiene creado el sp para buscar la ultima receta y sumarle uno
+
+
+    no pide que usemos interfaces.... no pide que usemos instancia de singelton
+no pide que carguemos el dgv del form principal para usar los filtros ni nada
