@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbUnidad = new System.Windows.Forms.GroupBox();
+            this.rbtCm3 = new System.Windows.Forms.RadioButton();
             this.rbtGramos = new System.Windows.Forms.RadioButton();
             this.rbtKilos = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
@@ -39,6 +40,10 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblTotalIngredientes = new System.Windows.Forms.Label();
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_ingrediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.cboIngrediente = new System.Windows.Forms.ComboBox();
             this.cboTipo = new System.Windows.Forms.ComboBox();
@@ -48,11 +53,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LblProximaReceta = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_ingrediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rbtCm3 = new System.Windows.Forms.RadioButton();
             this.gbUnidad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
@@ -68,6 +68,17 @@
             this.gbUnidad.Size = new System.Drawing.Size(123, 83);
             this.gbUnidad.TabIndex = 36;
             this.gbUnidad.TabStop = false;
+            // 
+            // rbtCm3
+            // 
+            this.rbtCm3.AutoSize = true;
+            this.rbtCm3.Location = new System.Drawing.Point(8, 57);
+            this.rbtCm3.Name = "rbtCm3";
+            this.rbtCm3.Size = new System.Drawing.Size(46, 17);
+            this.rbtCm3.TabIndex = 8;
+            this.rbtCm3.TabStop = true;
+            this.rbtCm3.Text = "Cm3";
+            this.rbtCm3.UseVisualStyleBackColor = true;
             // 
             // rbtGramos
             // 
@@ -171,6 +182,27 @@
             this.dgvDetalles.Size = new System.Drawing.Size(685, 108);
             this.dgvDetalles.TabIndex = 32;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // col_ingrediente
+            // 
+            this.col_ingrediente.HeaderText = "Ingrediente";
+            this.col_ingrediente.Name = "col_ingrediente";
+            // 
+            // col_Cantidad
+            // 
+            this.col_Cantidad.HeaderText = "Cantidad";
+            this.col_Cantidad.Name = "col_Cantidad";
+            // 
+            // colUnidad
+            // 
+            this.colUnidad.HeaderText = "Unidad";
+            this.colUnidad.Name = "colUnidad";
+            // 
             // nudCantidad
             // 
             this.nudCantidad.Location = new System.Drawing.Point(372, 158);
@@ -259,38 +291,7 @@
             this.LblProximaReceta.Size = new System.Drawing.Size(104, 20);
             this.LblProximaReceta.TabIndex = 19;
             this.LblProximaReceta.Text = "Recetas #: 1";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // col_ingrediente
-            // 
-            this.col_ingrediente.HeaderText = "Ingrediente";
-            this.col_ingrediente.Name = "col_ingrediente";
-            // 
-            // col_Cantidad
-            // 
-            this.col_Cantidad.HeaderText = "Cantidad";
-            this.col_Cantidad.Name = "col_Cantidad";
-            // 
-            // colUnidad
-            // 
-            this.colUnidad.HeaderText = "Unidad";
-            this.colUnidad.Name = "colUnidad";
-            // 
-            // rbtCm3
-            // 
-            this.rbtCm3.AutoSize = true;
-            this.rbtCm3.Location = new System.Drawing.Point(8, 57);
-            this.rbtCm3.Name = "rbtCm3";
-            this.rbtCm3.Size = new System.Drawing.Size(46, 17);
-            this.rbtCm3.TabIndex = 8;
-            this.rbtCm3.TabStop = true;
-            this.rbtCm3.Text = "Cm3";
-            this.rbtCm3.UseVisualStyleBackColor = true;
+            
             // 
             // Frm_Nueva_Receta
             // 

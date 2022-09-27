@@ -44,16 +44,17 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
         private void Frm_Nueva_Receta_Load(object sender, EventArgs e)
         {
             cargarcomboIngredientes();
-          //  cargarcomboTipoRecetas();  // no existe tabla prox receta
+          cargarcomboTipoRecetas(); 
             rbtKilos.Checked = true;
-            //cargarProximaReceta(); //no existe sp 
+           
             limpiarCampos();
+            cargarProximaReceta();
 
         }
 
         private void cargarProximaReceta()
         {
-            LblProximaReceta.Text = "Esta es la receta nº " + Convert.ToString((HelperBD.ObtenerInstancia().ProximaReceta("pa_UltimaReceta")) + 1);
+            LblProximaReceta.Text = "Recetas #:  " + Convert.ToString((HelperBD.ObtenerInstancia().ProximaReceta("pa_UltimaReceta")) + 1);
             //creo un SP para buscar la ultima receta
         }
 
@@ -162,7 +163,7 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
                 MessageBox.Show("debe ingresar el nombre del Cheff");
             }
 
-
+          
 
 
             oReceta.nombre = txtNombre.Text;
@@ -202,5 +203,7 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
                 return;
             }
         }
+
+        
     }
 }   

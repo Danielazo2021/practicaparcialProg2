@@ -69,11 +69,12 @@ namespace RecetasSLN.datos
                 t = cnn.BeginTransaction();
                 SqlCommand cmdMaestro = new SqlCommand(paMaestro, cnn, t);
                 cmdMaestro.CommandType = CommandType.StoredProcedure;
-                //cmdMaestro.Parameters.AddWithValue("@id_receta", oReceta.recetaNro); es identity
-                cmdMaestro.Parameters.AddWithValue("@nombre", oReceta.nombre);
-                cmdMaestro.Parameters.AddWithValue("@tipo_receta", oReceta.tipoReceta);
+              //  cmdMaestro.Parameters.AddWithValue("@id_receta", oReceta.recetaNro); es identity
+                cmdMaestro.Parameters.AddWithValue("@nombre", oReceta.nombre);                
                 cmdMaestro.Parameters.AddWithValue("@cheff", oReceta.cheff);
+                cmdMaestro.Parameters.AddWithValue("@tipo_receta", oReceta.tipoReceta);
                 cmdMaestro.ExecuteNonQuery();
+
 
                 foreach (DetalleReceta det in oReceta.Detalles)
                 {
@@ -104,9 +105,9 @@ namespace RecetasSLN.datos
         internal int ProximaReceta(string pa)
         {
 
-            SqlCommand cmd = new SqlCommand(pa);
+            SqlCommand cmd = new SqlCommand(pa, cnn);
             DataTable tabla = new DataTable();
-            int verificacion;
+            int verificacion=0;
             try
             {
 

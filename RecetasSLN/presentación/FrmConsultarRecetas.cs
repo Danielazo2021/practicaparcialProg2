@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecetasSLN.datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,42 @@ namespace RecetasSLN.presentación
             {
                 return;
             }
+        }
+
+        private void FrmConsultarRecetas_Load(object sender, EventArgs e)
+        {
+            cargargrilla();
+            cargarTipoReceta();
+
+        }
+
+        private void cargarTipoReceta()
+        {
+            DataTable tabla = HelperBD.ObtenerInstancia().consultarBD("pa_comboTipoRecetas");
+            cboTipoReceta.DataSource = tabla;
+            cboTipoReceta.ValueMember = tabla.Columns[0].ColumnName;
+            cboTipoReceta.DisplayMember = tabla.Columns[1].ColumnName;
+
+        }
+
+        private void cargargrilla()
+        {
+
+            DataTable tabla = HelperBD.ObtenerInstancia().consultarBD("pa_MostrarGrillaConsultas");
+            dgvConsultas.Rows.Clear();           
+
+
+            dgvConsultas.DataSource = tabla;
+            
+
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Función Momentanemente no disponible, pero puede ingresar una receta nueva sin ningún inconveniente");
+            return;
+
         }
     }
 }
