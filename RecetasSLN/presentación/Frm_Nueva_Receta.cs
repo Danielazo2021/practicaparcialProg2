@@ -35,6 +35,7 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
        
         Receta oReceta = new Receta();
         Ingrediente MiIngrediente = new Ingrediente();
+       
 
         public Frm_Nueva_Receta()
         {
@@ -44,7 +45,7 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
         private void Frm_Nueva_Receta_Load(object sender, EventArgs e)
         {
             cargarcomboIngredientes();
-          cargarcomboTipoRecetas(); 
+            cargarcomboTipoRecetas(); 
             rbtKilos.Checked = true;
            
             limpiarCampos();
@@ -54,13 +55,13 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
 
         private void cargarProximaReceta()
         {
-            LblProximaReceta.Text = "Recetas #:  " + Convert.ToString((HelperBD.ObtenerInstancia().ProximaReceta("pa_UltimaReceta")) + 1);
+            LblProximaReceta.Text = "Recetas #:  " + Convert.ToString((ImplementacionDao.ObtenerInstancia().ProximaReceta("pa_UltimaReceta")) + 1);
             //creo un SP para buscar la ultima receta
         }
 
         private void cargarcomboTipoRecetas() // ver que no hay tabla tipo de receta // creo una tabla y un sp 
         {
-            DataTable tabla = HelperBD.ObtenerInstancia().consultarBD("pa_comboTipoRecetas"); // no existe 
+            DataTable tabla = ImplementacionDao.ObtenerInstancia().consultarBD("pa_comboTipoRecetas"); // no existe 
             cboTipo.DataSource = tabla;
             cboTipo.ValueMember = tabla.Columns[0].ColumnName;
             cboTipo.DisplayMember = tabla.Columns[1].ColumnName;
@@ -68,7 +69,7 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
 
         private void cargarcomboIngredientes()
         {
-            DataTable tabla = HelperBD.ObtenerInstancia().consultarBD("SP_CONSULTAR_INGREDIENTES");
+            DataTable tabla = ImplementacionDao.ObtenerInstancia().consultarBD("SP_CONSULTAR_INGREDIENTES");
             cboIngrediente.DataSource = tabla;
             cboIngrediente.ValueMember = tabla.Columns[0].ColumnName;
             cboIngrediente.DisplayMember = tabla.Columns[1].ColumnName;
@@ -149,7 +150,7 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (dgvDetalles.Rows.Count <= 3)
+            if (dgvDetalles.Rows.Count < 3)
             {
                 MessageBox.Show("Ha olvidado ingredientes ?");
                 return;
@@ -168,10 +169,10 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
 
             oReceta.nombre = txtNombre.Text;
             oReceta.cheff = txtCheff.Text;
-            oReceta.recetaNro = (HelperBD.ObtenerInstancia().ProximaReceta("pa_UltimaReceta") + 1); // por mas quesea identity lo necesito para el detalle
+            oReceta.recetaNro = (ImplementacionDao.ObtenerInstancia().ProximaReceta("pa_UltimaReceta") + 1); // por mas quesea identity lo necesito para el detalle
             oReceta.tipoReceta = (int)(cboTipo.SelectedIndex + 1);
 
-            if (HelperBD.ObtenerInstancia().grabarReceta(oReceta, "SP_INSERTAR_RECETA", "SP_INSERTAR_DETALLES"))
+            if (ImplementacionDao.ObtenerInstancia().grabarReceta(oReceta, "SP_INSERTAR_RECETA", "SP_INSERTAR_DETALLES"))
             {
                 MessageBox.Show("Receta grabada con exito ", "aviso!", MessageBoxButtons.OK);
             }
@@ -204,6 +205,14 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
             }
         }
 
-        
+        private void dgvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvDetalles.CurrentCell.ColumnIndex==4)
+            {
+                oReceta.QuitarDetalle(dgvDetalles.CurrentRow.Index);
+                dgvDetalles.Rows.Remove(dgvDetalles.CurrentRow);
+            }
+
+        }
     }
 }   

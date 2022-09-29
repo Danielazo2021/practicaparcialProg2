@@ -64,7 +64,7 @@ namespace RecetasSLN.presentación
             this.btnConsultar.Location = new System.Drawing.Point(390, 53);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(111, 23);
-            this.btnConsultar.TabIndex = 4;
+            this.btnConsultar.TabIndex = 2;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -74,7 +74,7 @@ namespace RecetasSLN.presentación
             this.txtNombre.Location = new System.Drawing.Point(104, 57);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(279, 20);
-            this.txtNombre.TabIndex = 3;
+            this.txtNombre.TabIndex = 1;
             // 
             // label2
             // 
@@ -138,7 +138,7 @@ namespace RecetasSLN.presentación
             this.btnSalir.Location = new System.Drawing.Point(426, 350);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(91, 23);
-            this.btnSalir.TabIndex = 5;
+            this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -148,7 +148,7 @@ namespace RecetasSLN.presentación
             this.btnNuevo.Location = new System.Drawing.Point(12, 350);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(91, 23);
-            this.btnNuevo.TabIndex = 6;
+            this.btnNuevo.TabIndex = 2;
             this.btnNuevo.Text = "Nueva Receta";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);

@@ -1,36 +1,34 @@
-﻿using System;
+﻿using RecetasSLN.dominio;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
-using RecetasSLN.dominio;
 
 namespace RecetasSLN.datos
 {
-    internal class HelperBD // este lo remplace por el Dao cn la interface correspondiente y el singleton
+    internal class ImplementacionDao : InterfaceDao
     {
-       /* //SqlConnection cnn = new SqlConnection(@"Data Source =laptop-sjp45n95; Initial Catalog = recetas_db; Integrated Security = True");
-        //SqlCommand cmd = new SqlCommand();
-
-        private static HelperBD instancia;
+        private static ImplementacionDao instancia;
         private SqlConnection cnn;
 
-        private HelperBD()
+        private ImplementacionDao()
         {
             cnn = new SqlConnection(Properties.Resources.cnnString);
         }
 
-        public static HelperBD ObtenerInstancia()
+        public static ImplementacionDao ObtenerInstancia()
         {
             if (instancia == null)
-                instancia = new HelperBD();
+                instancia = new ImplementacionDao();
             return instancia;
         }
-       */
-       
-        /*
+
+
+
+
         public DataTable consultarBD(string pa)
         {
             cnn.Open();
@@ -38,7 +36,7 @@ namespace RecetasSLN.datos
             DataTable tabla = new DataTable();
             try
             {
-               
+
                 cmd.CommandType = CommandType.StoredProcedure;
                 tabla.Load(cmd.ExecuteReader());
                 return tabla;
@@ -57,9 +55,10 @@ namespace RecetasSLN.datos
             }
         }
 
-        internal bool grabarReceta(Receta oReceta, string paMaestro, string paDetalle)
-        {
+       
 
+        public bool grabarReceta(Receta oReceta, string paMaestro, string paDetalle)
+        {
             SqlTransaction t = null;
             bool confirmar = false;
 
@@ -69,8 +68,8 @@ namespace RecetasSLN.datos
                 t = cnn.BeginTransaction();
                 SqlCommand cmdMaestro = new SqlCommand(paMaestro, cnn, t);
                 cmdMaestro.CommandType = CommandType.StoredProcedure;
-              //  cmdMaestro.Parameters.AddWithValue("@id_receta", oReceta.recetaNro); es identity
-                cmdMaestro.Parameters.AddWithValue("@nombre", oReceta.nombre);                
+                //  cmdMaestro.Parameters.AddWithValue("@id_receta", oReceta.recetaNro); es identity
+                cmdMaestro.Parameters.AddWithValue("@nombre", oReceta.nombre);
                 cmdMaestro.Parameters.AddWithValue("@cheff", oReceta.cheff);
                 cmdMaestro.Parameters.AddWithValue("@tipo_receta", oReceta.tipoReceta);
                 cmdMaestro.ExecuteNonQuery();
@@ -102,12 +101,11 @@ namespace RecetasSLN.datos
 
         }
 
-        internal int ProximaReceta(string pa)
+        public int ProximaReceta(string pa)
         {
-
             SqlCommand cmd = new SqlCommand(pa, cnn);
             DataTable tabla = new DataTable();
-            int verificacion=0;
+            int verificacion = 0;
             try
             {
 
@@ -132,7 +130,7 @@ namespace RecetasSLN.datos
                 }
 
                 return (int)pOut.Value;
-                
+
 
             }
             catch (SqlException ex)
@@ -146,7 +144,6 @@ namespace RecetasSLN.datos
                     cnn.Close();
                 }
             }
-
-        }*/
+        }
     }
 }

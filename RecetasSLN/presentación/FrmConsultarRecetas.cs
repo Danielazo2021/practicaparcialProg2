@@ -15,6 +15,7 @@ namespace RecetasSLN.presentación
     public partial class FrmConsultarRecetas : Form
     {
         Frm_Nueva_Receta Nueva_receta;
+        string[] tipoRecetas = { "1 - pollo", "2 - carne", "3 - pastas", "4 - pescado", "5 - otros" };
         public FrmConsultarRecetas()
         {
             InitializeComponent();
@@ -50,17 +51,21 @@ namespace RecetasSLN.presentación
 
         private void cargarTipoReceta()
         {
-            DataTable tabla = HelperBD.ObtenerInstancia().consultarBD("pa_comboTipoRecetas");
+            /*
+            DataTable tabla = ImplementacionDao.ObtenerInstancia().consultarBD("pa_comboTipoRecetas");
             cboTipoReceta.DataSource = tabla;
             cboTipoReceta.ValueMember = tabla.Columns[0].ColumnName;
-            cboTipoReceta.DisplayMember = tabla.Columns[1].ColumnName;
+            cboTipoReceta.DisplayMember = tabla.Columns[1].ColumnName;*/
+            
+            
+            cboTipoReceta.DataSource = tipoRecetas; // uso la lista que pase en vez de una tabla de la base
 
         }
 
         private void cargargrilla()
         {
 
-            DataTable tabla = HelperBD.ObtenerInstancia().consultarBD("pa_MostrarGrillaConsultas");
+            DataTable tabla = ImplementacionDao.ObtenerInstancia().consultarBD("pa_MostrarGrillaConsultas");
             dgvConsultas.Rows.Clear();           
 
 

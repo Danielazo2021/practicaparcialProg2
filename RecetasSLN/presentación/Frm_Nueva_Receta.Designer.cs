@@ -40,10 +40,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblTotalIngredientes = new System.Windows.Forms.Label();
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_ingrediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.cboIngrediente = new System.Windows.Forms.ComboBox();
             this.cboTipo = new System.Windows.Forms.ComboBox();
@@ -53,6 +49,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LblProximaReceta = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_ingrediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gbUnidad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
@@ -66,7 +67,7 @@
             this.gbUnidad.Location = new System.Drawing.Point(563, 118);
             this.gbUnidad.Name = "gbUnidad";
             this.gbUnidad.Size = new System.Drawing.Size(123, 83);
-            this.gbUnidad.TabIndex = 36;
+            this.gbUnidad.TabIndex = 7;
             this.gbUnidad.TabStop = false;
             // 
             // rbtCm3
@@ -75,7 +76,7 @@
             this.rbtCm3.Location = new System.Drawing.Point(8, 57);
             this.rbtCm3.Name = "rbtCm3";
             this.rbtCm3.Size = new System.Drawing.Size(46, 17);
-            this.rbtCm3.TabIndex = 8;
+            this.rbtCm3.TabIndex = 1;
             this.rbtCm3.TabStop = true;
             this.rbtCm3.Text = "Cm3";
             this.rbtCm3.UseVisualStyleBackColor = true;
@@ -86,7 +87,7 @@
             this.rbtGramos.Location = new System.Drawing.Point(8, 34);
             this.rbtGramos.Name = "rbtGramos";
             this.rbtGramos.Size = new System.Drawing.Size(61, 17);
-            this.rbtGramos.TabIndex = 7;
+            this.rbtGramos.TabIndex = 0;
             this.rbtGramos.TabStop = true;
             this.rbtGramos.Text = "Gramos";
             this.rbtGramos.UseVisualStyleBackColor = true;
@@ -134,7 +135,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(368, 331);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 30;
+            this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -144,7 +145,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(261, 331);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 29;
+            this.btnAceptar.TabIndex = 9;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -154,7 +155,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(703, 158);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 28;
+            this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -176,32 +177,13 @@
             this.Column1,
             this.col_ingrediente,
             this.col_Cantidad,
-            this.colUnidad});
+            this.colUnidad,
+            this.Accion});
             this.dgvDetalles.Location = new System.Drawing.Point(48, 217);
             this.dgvDetalles.Name = "dgvDetalles";
             this.dgvDetalles.Size = new System.Drawing.Size(685, 108);
             this.dgvDetalles.TabIndex = 32;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // col_ingrediente
-            // 
-            this.col_ingrediente.HeaderText = "Ingrediente";
-            this.col_ingrediente.Name = "col_ingrediente";
-            // 
-            // col_Cantidad
-            // 
-            this.col_Cantidad.HeaderText = "Cantidad";
-            this.col_Cantidad.Name = "col_Cantidad";
-            // 
-            // colUnidad
-            // 
-            this.colUnidad.HeaderText = "Unidad";
-            this.colUnidad.Name = "colUnidad";
+            this.dgvDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellContentClick);
             // 
             // nudCantidad
             // 
@@ -218,7 +200,7 @@
             0});
             this.nudCantidad.Name = "nudCantidad";
             this.nudCantidad.Size = new System.Drawing.Size(75, 20);
-            this.nudCantidad.TabIndex = 27;
+            this.nudCantidad.TabIndex = 4;
             this.nudCantidad.Value = new decimal(new int[] {
             1,
             0,
@@ -231,7 +213,7 @@
             this.cboIngrediente.Location = new System.Drawing.Point(84, 160);
             this.cboIngrediente.Name = "cboIngrediente";
             this.cboIngrediente.Size = new System.Drawing.Size(218, 21);
-            this.cboIngrediente.TabIndex = 26;
+            this.cboIngrediente.TabIndex = 3;
             // 
             // cboTipo
             // 
@@ -239,21 +221,21 @@
             this.cboTipo.Location = new System.Drawing.Point(105, 118);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(121, 21);
-            this.cboTipo.TabIndex = 25;
+            this.cboTipo.TabIndex = 2;
             // 
             // txtCheff
             // 
             this.txtCheff.Location = new System.Drawing.Point(105, 92);
             this.txtCheff.Name = "txtCheff";
             this.txtCheff.Size = new System.Drawing.Size(303, 20);
-            this.txtCheff.TabIndex = 23;
+            this.txtCheff.TabIndex = 1;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(105, 68);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(303, 20);
-            this.txtNombre.TabIndex = 20;
+            this.txtNombre.TabIndex = 0;
             // 
             // label4
             // 
@@ -291,7 +273,34 @@
             this.LblProximaReceta.Size = new System.Drawing.Size(104, 20);
             this.LblProximaReceta.TabIndex = 19;
             this.LblProximaReceta.Text = "Recetas #: 1";
-            
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // col_ingrediente
+            // 
+            this.col_ingrediente.HeaderText = "Ingrediente";
+            this.col_ingrediente.Name = "col_ingrediente";
+            // 
+            // col_Cantidad
+            // 
+            this.col_Cantidad.HeaderText = "Cantidad";
+            this.col_Cantidad.Name = "col_Cantidad";
+            // 
+            // colUnidad
+            // 
+            this.colUnidad.HeaderText = "Unidad";
+            this.colUnidad.Name = "colUnidad";
+            // 
+            // Accion
+            // 
+            this.Accion.HeaderText = "Accion";
+            this.Accion.Name = "Accion";
+            this.Accion.Text = "Remover Item";
+            this.Accion.UseColumnTextForButtonValue = true;
             // 
             // Frm_Nueva_Receta
             // 
@@ -350,10 +359,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblProximaReceta;
+        private System.Windows.Forms.RadioButton rbtCm3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_ingrediente;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnidad;
-        private System.Windows.Forms.RadioButton rbtCm3;
+        private System.Windows.Forms.DataGridViewButtonColumn Accion;
     }
 }
