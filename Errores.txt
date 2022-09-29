@@ -10,3 +10,7 @@
 
     no pide que usemos interfaces.... no pide que usemos instancia de singelton
 no pide que carguemos el dgv del form principal para usar los filtros ni nada
+
+/////////////
+
+se corriguieron los errores, se modifico la tabla, se crearon los Sp, funciona todo ok
