@@ -108,17 +108,17 @@ no pide que carguemos el dgv del form principal para usar los filtros ni nada
 
             if (rbtGramos.Checked)
             {
-                 unidad = "gr";
+                 unidad = "Gr";
             }
-            if(rbtCm3.Checked)
-            {
-                unidad = "Cm3";
-            }
-            else
-            {
-                unidad = "Kg";
-            }
-            MiIngrediente.nombre = nombreIngrediente;
+            else if(rbtCm3.Checked)
+                {
+                    unidad = "Cm3";
+                }
+                else
+                    {
+                        unidad = "Kg";
+                    }
+              MiIngrediente.nombre = nombreIngrediente;
             MiIngrediente.unidad = unidad;
             MiIngrediente.ingredienteId = Idingrediente;
 
